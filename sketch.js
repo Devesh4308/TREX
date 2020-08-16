@@ -12,8 +12,12 @@ var score=0;
 
 var gameOver, restart;
 
+var jump;
 
 function preload(){
+  
+  jump=loadSound("jump.mp3");
+  
   trex_running =   loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadAnimation("trex_collided.png");
   
@@ -78,6 +82,7 @@ function draw() {
   
     if(keyDown("space") && trex.y >= 159) {
       trex.velocityY = -12;
+      jump.play();
     }
   
     trex.velocityY = trex.velocityY + 0.8
